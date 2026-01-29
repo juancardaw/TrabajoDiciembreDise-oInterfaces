@@ -41,7 +41,7 @@
   font-size: 16px;
   cursor: pointer;
   padding: 10px 0;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
   font-weight: 500;
   height: 60px;
 }
@@ -59,20 +59,38 @@
   width: 0;
   height: 2px;
   background-color: currentColor;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
 }
 
 .nav-menu button:hover::after {
   width: 100%;
 }
 
+
+/* Botones del navegador de operaciones */
 .nav-operation{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid blueviolet;
-  gap: 30px;
+  /* border: 2px solid blueviolet; */
   flex-wrap: wrap;
+}
+
+
+.nav-operation div{
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.nav-operation i {
+  font-size: 20px;
+  color: black;
+  transition: transform 0.5s ease;
+}
+
+.nav-operation i:hover{
+  transform: scale(1.3);
 }
 
 
