@@ -11,6 +11,10 @@ header {
   height: 10vh;
 }
 
+main {
+  background: linear-gradient(to bottom, #fcc5c5 20%, #ffffff 50%);
+}
+
 
 a{
   text-decoration: none;
@@ -229,15 +233,17 @@ button {
 }
 
 .service-container-card:hover{
-  background: radial-gradient(center, #e0dede 0%, #ffffff 50%);
   transform: scale(1.1);
   text-shadow: 1px 3px 6px rgb(0, 0, 0, 0.4);
 }
 
 
-
-
 /* Contenedor del footer */
+footer{
+  height: 30vh;
+  width: 100%;
+  background: rgb(248, 220, 220);
 
+}
 /* Medias Querys */
 
