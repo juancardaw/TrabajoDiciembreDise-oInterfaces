@@ -12,9 +12,25 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    border: solid 2px green;
+    padding: 0 30px;
 }
 
 
+.nav-menuArea{
+  display:flex;
+  align-items: center;
+  border: red solid 2px;
+  width: 80%;
+}
+
+
+.nav-menu{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
 
 
 
