@@ -493,14 +493,17 @@ header {
 }
 
 
-.service-container-card{
   /* border: 2px solid red; */
-  padding: 20px;
-  height: 80px;
-  display: inline-block;
-  width: auto;
-  transition: all 0.3s ease;
+.service-container-card {
+    /* Mantenemos tus estilos pero aseguramos dimensiones */
+    padding: 20px;
+    height: auto; /* Cambia el height fijo de 80px por auto */
+    min-height: 120px; /* Le da una base sólida al navegador */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 
 .service-container-card a{
@@ -538,18 +541,18 @@ header {
 
 .fade-up.left{
   animation-name: fade-up-left;
-  animation-range: entry 0% entry 500%;
+  animation-range: entry 0% entry 300%;
 }
 
 .fade-up.right{
   animation-name: fade-up-right;
-  animation-range: entry 0% entry 500%;
+  animation-range: entry 0% entry 300%;
 }
 
 @keyframes fade-up-left {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-200px);
   }
   to {
     opacity: 1;
@@ -561,7 +564,7 @@ header {
 @keyframes fade-up-right {
   from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(200px);
   }
   to {
     opacity: 1;
@@ -677,20 +680,8 @@ footer {
   box-sizing: border-box;
 }
 
-/* Responsive en todas las medidas y tamaños */
-@media (max-width: 600px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 10px;
-  }
 
-  .footer-top button {
-    width: 80%;
-    max-width: 200px;
-  }
-}
-
-/* Modal de Soporte Tecnico formulario */
+/* DISEÑO FORMULARIO MODALE*/
 .modal-overlay {
   display: none;
   position: fixed;
@@ -862,7 +853,20 @@ footer {
   transform: translateY(0);
 }
 
+
 /* Medias Querys - RESPONSIVE DESIGN */
+/* Responsive en todas las medidas y tamaños el footer */
+@media (max-width: 600px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-top button {
+    width: 80%;
+    max-width: 200px;
+  }
+}
 
 /* Tablets pequeños (788px y menos) */
 @media (max-width: 788px) {

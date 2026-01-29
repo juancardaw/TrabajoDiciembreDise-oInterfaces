@@ -5,6 +5,18 @@ const supportModal = document.getElementById("supportModal");
 const closeModal = document.getElementById("closeModal");
 const supportForm = document.getElementById("supportForm");
 
+
+// Logica para que los enlaces de la parte servicios no me recarguen la pagina
+document.querySelectorAll('.service-container-card a').forEach(enlace => {
+    enlace.addEventListener('click', function(e) {
+        // Si el enlace no lleva a otra página, cancelamos el salto
+        if(this.getAttribute('href') === '#' || this.getAttribute('href').includes('javascript')) {
+            e.preventDefault(); 
+        }
+        // Aquí tu lógica para abrir el modal o lo que necesites
+    });
+});
+
 // Función para abrir modal
 function openSupportModal() {
   supportModal.classList.add("active");
@@ -64,4 +76,6 @@ supportForm.addEventListener("submit", (e) => {
   
   // Cerrar modal
   closeSupportModal();
+
+  
 });
