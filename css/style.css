@@ -171,7 +171,7 @@ button {
 }
 
 
-/* CONTENEDOR DEL SLIDER */
+/* Contenedor Slider con imagenes*/
 .slider-container {
   width: 100%;
   max-width: 900px;     /* Ajusta al diseño */
@@ -196,9 +196,57 @@ button {
   cursor: grab;
 }
 
+/* Base animada de la parte del Main Menu */
+.main-letter,
+.slider-principal {
+  opacity: 0;
+  animation-timeline: view();
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(.22,.8,.36,1);
+}
+
+/* Parte solo del texto entrando de izquierda a derecha */
+.main-letter.left {
+  animation-name: slide-left;
+  animation-range: entry 0% entry 150%;
+ 
+}
+
+/* Parte solo de las imagenes entrando de derecha a izquierda */
+.slider-principal.right {
+  animation-name: slide-right;
+  animation-range: entry 0% entry 150%;
+}
+
+/* Aqui realizo las animaciones de izquierda a derecha */
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aqui realizo las animaciones de derecha a izquierda */
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
 
 /* Contenedor de la parte service */
-
 .service{
   /* border: 2px solid red; */
   background: linear-gradient(to bottom, #ffffff, #fff5f5);
