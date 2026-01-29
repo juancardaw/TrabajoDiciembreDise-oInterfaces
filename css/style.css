@@ -12,6 +12,22 @@ header {
 }
 
 
+a{
+  text-decoration: none;
+}
+
+
+button {
+  background: none;   
+  border: none;       
+  padding: 0;        
+  margin: 0;          
+  font: inherit;        
+  color: inherit;     
+  cursor: pointer;    
+}
+
+
 /* Contenedor del nav */
 .nav-container{
     display: flex;
@@ -176,6 +192,44 @@ header {
   user-select: none;
   cursor: grab;
 }
+
+
+/* Contenedor de la parte service */
+.service-container{
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 2px solid red; */
+}
+
+
+.service-container-card{
+  /* border: 2px solid red; */
+  padding: 20px;
+  height: 80px;
+  display: inline-block;
+  width: auto;
+  transition: transform 0.3s linear;
+}
+
+
+.service-container-card a{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+}
+
+.service-container-card:hover{
+  background: radial-gradient(circle at center, #e0dede 0%, #ffffff 50%);
+  transform: scale(1.1);
+  text-shadow: 1px 3px 6px rgb(0, 0, 0, 0.4);
+}
+
+
 
 
 /* Contenedor del footer */
