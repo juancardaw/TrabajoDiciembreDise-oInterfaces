@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    border: solid 2px green;
+    /* border: solid 2px green; */
     padding: 0 30px;
 }
 
@@ -20,7 +20,7 @@
 .nav-menuArea{
   display:flex;
   align-items: center;
-  border: red solid 2px;
+  /* border: red solid 2px; */
   width: 80%;
 }
 
@@ -30,10 +30,50 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Botones del navegador principal */
+.nav-menu button {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  height: 60px;
+}
+
+.nav-menu button:hover{
+  font-weight: 700;
 }
 
 
+.nav-menu button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
 
+.nav-menu button:hover::after {
+  width: 100%;
+}
+
+.nav-operation{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid blueviolet;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
 
 /* Contenedor del main */
