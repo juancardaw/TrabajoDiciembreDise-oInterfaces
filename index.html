@@ -1,142 +1,171 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- Link de Googles Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <!-- Link de icono de la web -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
     <link rel="shortcut icon" href="./img/logo_msi.png" type="image/x-icon" />
-    <!-- Script de JS -->
+    
+    <script src="./js/hamburger-menu.js" defer></script>
+    <script src="./js/main-slider.js" defer></script>
     <script src="./js/slider.js" defer></script>
-    <title>Proyecto Diciembre JCPM</title>
+    <script src="./js/support-modal.js" defer></script>
+    
+    <title>MSI Proyecto - JCPM</title>
   </head>
   <body>
 
-    
-    <!-- Encabezado de la web -->
-    <header>
-        <!-- Navegador principal de la web -->
-      <nav class="navPrincipal">
-        <div class="nav-container">
-            <!-- Menu de las opciones principales con la imgan de la web -->
-          <div class="nav-menuArea">
-            <a href="#">
-              <picture>
-                <img src="./img/logo_msi.png" alt="Imagen de MSI" />
-              </picture>
-            </a>
-            <div class="nav-menu">
-              <button class="btnNavMenu">Tienda Online</button>
-              <button class="btnNavMenu">Productos</button>
-              <button class="btnNavMenu">Para Empresas</button>
-              <button class="btnNavMenu">Novedades</button>
-              <button class="btnNavMenu">Soporte Tecnico</button>
-            </div>
-          </div>
+    <header class="navPrincipal">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <picture>
+            <img src="./img/logo_msi.png" alt="Logo de MSI" />
+          </picture>
+        </a>
 
-          <!-- Menu de las opciones secundarias del nav -->
-          <div class="nav-operation">
-            <div>
-              <a href="#">
-                <i class="fa-regular fa-clipboard"></i>
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <i class="fa-regular fa-sun"></i>
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <i class="fa-regular fa-circle-user"></i>
-              </a>
-            </div>
-          </div>
+        <nav class="nav-menu" id="navMenu">
+          <a href="#tienda" class="btnNavMenu">Tienda Online</a>
+          <a href="#productos" class="btnNavMenu">Productos</a>
+          <a href="#empresas" class="btnNavMenu">Para Empresas</a>
+          <a href="#novedades" class="btnNavMenu">Novedades</a>
+          <button class="btnNavMenu" id="navSupportBtn">Soporte Técnico</button>
+        </nav>
 
+        <div class="nav-operation">
+          <a href="#" aria-label="Portapapeles"><i class="fa-regular fa-clipboard"></i></a>
+          <a href="#" aria-label="Cambiar tema"><i class="fa-regular fa-sun"></i></a>
+          <a href="#" aria-label="Usuario"><i class="fa-regular fa-circle-user"></i></a>
         </div>
-      </nav>
+
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
-<!-- Parte principal de la pagina -->
     <main>
-        <!-- Imagen principal de la pagina -->
       <section class="main-img">
-        <div>
-          <picture>
-            <img src="./img/img-main.jpeg" alt="Imagen principal" />
-          </picture>
+        <div class="main-img-container">
+          <div class="main-slider" id="mainSlider">
+            <img src="./img/img-main.jpeg" alt="Potencia Gaming MSI 1" />
+            <img src="./img/img-main2.jpeg" alt="Equipos Profesionales 2" />
+            <img src="./img/img-main3.jpeg" alt="Innovación Tecnológica 3" />
+            <img src="./img/img-main4.png" alt="Diseño Futurista 4" />
+          </div>
+          <button class="main-slider-btn main-slider-prev" id="mainSliderPrev" aria-label="Imagen anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="main-slider-btn main-slider-next" id="mainSliderNext" aria-label="Imagen siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="main-slider-indicators" id="mainSliderIndicators"></div>
         </div>
       </section>
-<!-- Imagenes desplazables del menu principal -->
+
       <section class="main-menu">
         <div class="main-letter left">
           <h2>Potencia que se adapta a ti</h2>
           <p>Descubre equipos diseñados para ofrecer rendimiento, velocidad y fiabilidad en cada tarea. Ya sea para gaming, trabajo profesional o uso diario, nuestros PCs están pensados para acompañarte al máximo nivel.</p>
-          <p>Trabajamos con componentes de alta calidad, cuidando cada detalle para garantizar una experiencia fluida, estable y duradera. Apostamos por el equilibrio entre potencia y diseño, para que tu equipo no solo funcione bien, sino que también se vea increíble.</p>
-          <p>Elige el PC que mejor se adapte a tus necesidades y da el siguiente paso en rendimiento y tecnología.</p>
+          <p>Trabajamos con componentes de alta calidad, cuidando cada detalle para garantizar una experiencia fluida, estable y duradera.</p>
+          <p>Elige el PC que mejor se adapte a tus necesidades y da el siguiente paso en tecnología.</p>
         </div>
+        
         <div class="slider-principal right">
           <div class="slider-container">
             <div class="slider" id="slider">
-              <img src="./img/img-slider1.png" alt="Imagen furgoneta" />
-              <img src="./img/img-slider2.jpeg" alt="Imagen servidores" />
-              <img src="./img/img-slider3.jpeg" alt="Imagen de un camion" />
+              <img src="./img/img-slider1.png" alt="Transporte y logística" />
+              <img src="./img/img-slider2.jpeg" alt="Servidores de alta gama" />
+              <img src="./img/img-slider3.jpeg" alt="Infraestructura potente" />
             </div>
+            <button class="slider-btn slider-prev" id="sliderPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-btn slider-next" id="sliderNext" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slider-indicators" id="sliderIndicators"></div>
           </div>
         </div>
       </section>
-<!-- Seccion de servicios principales -->
+
       <section class="service">
         <div class="service-container">
-          <div class="service-container-card">
+          <div class="service-container-card fade-up left">
             <a href="#">
               <i class="fa-regular fa-percent"></i>
               <p>Descuentos</p>
             </a>
           </div>
-          <div class="service-container-card">
+          <div class="service-container-card fade-up left">
             <a href="#">
               <i class="fa-solid fa-truck"></i>
-              <p>Envios</p>
+              <p>Envíos</p>
             </a>
           </div>
-          <div class="service-container-card">
+          <div class="service-container-card fade-up right">
             <a href="#">
               <i class="fa-solid fa-headset"></i>
-              <p>Atencion Cliente</p>
+              <p>Atención Cliente</p>
             </a>
           </div>
-          <div class="service-container-card">
+          <div class="service-container-card fade-up right">
             <a href="#">
               <i class="fa-solid fa-shield"></i>
-              <p>Garantia</p>
+              <p>Garantía</p>
             </a>
           </div>
         </div>
       </section>
-
     </main>
 
-<!-- Seccion del footer -->
     <footer>
-<!-- Servicios del footer -->
-      <div class="container-footer">
+      <div class="footer-top fade-down">
         <button>Comunidad</button>
-        <button>Soporte tecnico</button>
+        <button id="supportBtn">Soporte técnico</button>
         <button>Noticias</button>
         <button>Sobre MSI</button>
         <button>Media</button>
       </div>
-<!-- Parte de la declaracion del copyright -->
-      <div class="container-footer2">
-        <p>Copyright JCPM Derechos reservados</p>
+      <div class="footer-bottom fade-up">
+        <p>&copy; 2024 JCPM - MSI Fan Website. Todos los derechos reservados.</p>
       </div>
-
     </footer>
+
+
+    
+    <!-- Formulario al pulsar el boton de soporte tenico -->
+    <div class="modal-overlay" id="supportModal">
+      <div class="modal-content">
+        <button class="modal-close" id="closeModal" aria-label="Cerrar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-header">
+          <i class="fa-solid fa-headset"></i>
+          <h2>Soporte Técnico</h2>
+          <p>¿Tienes algún problema? Cuéntanos y te ayudaremos</p>
+        </div>
+        <form class="support-form" id="supportForm">
+          <div class="form-group">
+            <label for="supportName">Nombre completo</label>
+            <input type="text" id="supportName" name="name" required placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="supportEmail">Correo electrónico</label>
+            <input type="email" id="supportEmail" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="supportMessage">Describe tu problema</label>
+            <textarea id="supportMessage" name="message" required placeholder="Detalla tu problema..." rows="6"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Enviar solicitud</button>
+        </form>
+      </div>
+    </div>
+
   </body>
 </html>

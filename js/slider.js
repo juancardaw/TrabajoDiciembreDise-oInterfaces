@@ -1,76 +1,132 @@
 const slider = document.getElementById("slider");
 const images = slider.querySelectorAll("img");
+const sliderContainer = slider.parentElement;
+const indicatorsContainer = document.getElementById("sliderIndicators");
+const prevBtn = document.getElementById("sliderPrev");
+const nextBtn = document.getElementById("sliderNext");
 
 let isDragging = false;
 let startX = 0;
 let currentIndex = 0;
-let imageWidth = slider.parentElement.offsetWidth;
+let imageWidth = sliderContainer.offsetWidth;
+let autoSlideInterval;
+const AUTO_SLIDE_DELAY = 5000; // 5 segundos
 
-// Función para iniciar el arrastre
+// Crear indicadores
+function createIndicators() {
+  images.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.classList.add("slider-dot");
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goToSlide(index));
+    indicatorsContainer.appendChild(dot);
+  });
+}
+
+// Ir a una diapositiva específica
+function goToSlide(index) {
+  currentIndex = index;
+  updateSlider();
+  resetAutoSlide();
+}
+
+// Siguiente diapositiva
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateSlider();
+  resetAutoSlide();
+}
+
+// Diapositiva anterior
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateSlider();
+  resetAutoSlide();
+}
+
+// Actualizar slider
+function updateSlider() {
+  imageWidth = sliderContainer.offsetWidth;
+  slider.style.transition = "transform 0.4s ease";
+  slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  
+  // Actualizar indicadores
+  document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentIndex);
+  });
+}
+
+// Iniciar auto slide
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, AUTO_SLIDE_DELAY);
+}
+
+// Resetear auto slide
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+// Event listeners para botones
+prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", nextSlide);
+
+// Pausar auto slide al pasar el mouse
+sliderContainer.addEventListener("mouseenter", () => {
+  clearInterval(autoSlideInterval);
+});
+
+// Reanudar auto slide al salir el mouse
+sliderContainer.addEventListener("mouseleave", () => {
+  startAutoSlide();
+});
+
+// Drag functionality
 function startDrag(e) {
   isDragging = true;
   startX = e.clientX;
-  slider.style.transition = "none"; // Quitamos animación mientras arrastra
+  slider.style.transition = "none";
   slider.style.cursor = "grabbing";
-  e.preventDefault(); // Prevenir selección de texto
+  e.preventDefault();
 }
 
-// Función para terminar el arrastre
 function endDrag(e) {
   if (!isDragging) return;
-
+  
   const diff = e.clientX - startX;
   
-  console.log("Diferencia:", diff, "Índice actual:", currentIndex);
-
-  // Umbral para cambiar de imagen
-  if (diff < -100 && currentIndex < images.length - 1) {
-    currentIndex++;
-    console.log("Siguiente imagen:", currentIndex);
-  } else if (diff > 100 && currentIndex > 0) {
-    currentIndex--;
-    console.log("Imagen anterior:", currentIndex);
+  if (diff < -50 && currentIndex < images.length - 1) {
+    nextSlide();
+  } else if (diff > 50 && currentIndex > 0) {
+    prevSlide();
+  } else {
+    updateSlider();
   }
-
-  slider.style.transition = "transform 0.4s ease";
   
-  // Recalcular ancho antes de mover
-  imageWidth = slider.parentElement.offsetWidth;
-  moveSlider();
-
   isDragging = false;
   slider.style.cursor = "grab";
 }
 
-// Al presionar el ratón en el slider
 slider.addEventListener("mousedown", startDrag);
-
-// Al presionar el ratón en cualquier imagen
 images.forEach((img) => {
   img.addEventListener("mousedown", startDrag);
 });
 
-// Mientras se mueve el ratón
 window.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
-
+  
   const diff = e.clientX - startX;
-
-  slider.style.transform = `translateX(${
-    -currentIndex * imageWidth + diff
-  }px)`;
+  slider.style.transform = `translateX(${-currentIndex * imageWidth + diff}px)`;
 });
 
-// Al soltar el ratón
 document.addEventListener("mouseup", endDrag);
-
-// Función que coloca la imagen correcta
-function moveSlider() {
-  slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-}
 
 // Recalcular ancho al redimensionar
 window.addEventListener("resize", () => {
-  imageWidth = slider.parentElement.offsetWidth;
-  moveSlider();
+  imageWidth = sliderContainer.offsetWidth;
+  updateSlider();
 });
+
+// Inicialización
+createIndicators();
+startAutoSlide();
