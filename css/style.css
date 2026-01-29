@@ -42,7 +42,7 @@ main {
 header {
   height: 10vh;
   background: linear-gradient(to bottom, #fcc5c5 20%, #ffffff 50%);
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   z-index: 100;
 }
