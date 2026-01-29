@@ -245,5 +245,16 @@ footer{
   background: rgb(248, 220, 220);
 
 }
+
+
+.container-footer{
+  border: 2px solid red;
+}
+
+.container-footer2{
+  border: 2px solid red;
+}
+
+
 /* Medias Querys */
 
